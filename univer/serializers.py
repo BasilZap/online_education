@@ -1,17 +1,36 @@
 from rest_framework import serializers
 
-from univer.models import Course, Lesson
+from univer.models import Course, Lesson, Payments
 
 
+# Сериализатор для урока
+class LessonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lesson
+        fields = '__all__'
+
+
+# Сериализатор для курса
 class CourseSerializer(serializers.ModelSerializer):
+    course_lesson_count = serializers.SerializerMethodField()
+    lessons = LessonSerializer(source='lesson_set', many=True)
 
     class Meta:
         model = Course
         fields = '__all__'
 
+    def get_course_lesson_count(self, course):
+        """
+        Метод вывода уроков конкретного курса
+        :param course:
+        :return:
+        """
+        return Lesson.objects.filter(course=course).count()
 
-class LessonSerializer(serializers.ModelSerializer):
+
+# Сериализатор для платежей
+class PaymentsSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Lesson
+        model = Payments
         fields = '__all__'

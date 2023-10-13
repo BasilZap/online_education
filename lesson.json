@@ -1,0 +1,95 @@
+[
+  {
+    "model": "univer.course",
+    "pk": 1,
+    "fields": {
+      "name": "Python",
+      "image": "",
+      "description": "Курс языка Python"
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 2,
+    "fields": {
+      "name": "Java",
+      "image": "",
+      "description": "Курс языка Java"
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 3,
+    "fields": {
+      "name": "C++",
+      "image": "",
+      "description": "Курс языка C++"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 1,
+    "fields": {
+      "name": "Логические операции",
+      "course": 1,
+      "description": "В уроке мы узнаем о логических операциях в Python",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/1"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 2,
+    "fields": {
+      "name": "Арифметические операции в Python",
+      "course": 1,
+      "description": "В уроке мы узнаем об арифметических операциях в Python",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/2"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 3,
+    "fields": {
+      "name": "Операции со структурами данных в Python",
+      "course": 1,
+      "description": "В уроке мы узнаем как работать со списками, кортежами и т.д. в Python",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/3"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 4,
+    "fields": {
+      "name": "Логические операции в Java",
+      "course": 2,
+      "description": "В уроке мы узнаем о логических операциях в Java",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/4"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 5,
+    "fields": {
+      "name": "Арифметические операции в Java",
+      "course": 2,
+      "description": "В уроке мы узнаем об арифметических операциях в Java",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/5"
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 6,
+    "fields": {
+      "name": "Введение в C++",
+      "course": 3,
+      "description": "В уроке мы узнаем что такое C++",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/6"
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+    {
+    "model": "univer.payments",
+    "pk": 1,
+    "fields": {
+      "pay_user": 1,
+      "pay_date": "2023-01-02",
+      "payd_course": 3,
+      "pay_amount": 12000.0,
+      "pay_method": "cash"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 2,
+    "fields": {
+      "pay_user": 2,
+      "pay_date": "2023-01-10",
+      "payd_course": 1,
+      "pay_amount": 5000.0,
+      "pay_method": "cash"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 3,
+    "fields": {
+      "pay_user": 1,
+      "pay_date": "2023-02-02",
+      "payd_lesson": 6,
+      "pay_amount": 4000.0,
+      "pay_method": "transfer"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 4,
+    "fields": {
+      "pay_user": 3,
+      "pay_date": "2023-02-05",
+      "payd_lesson": 1,
+      "pay_amount": 3000.0,
+      "pay_method": "cash"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 5,
+    "fields": {
+      "pay_user": 3,
+      "pay_date": "2023-03-05",
+      "payd_lesson": 2,
+      "pay_amount": 4000.0,
+      "pay_method": "transfer"
+    }
+  }
+]
