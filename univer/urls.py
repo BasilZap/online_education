@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from univer.apps import UniverConfig
 from univer.views import CourseViewSet, LessonRetrieveAPIView, LessonCreateAPIView, LessonListAPIView, \
-    LessonDestroyAPIView, LessonUpdateAPIView
+    LessonDestroyAPIView, LessonUpdateAPIView, PaymentsListAPIView
 
 app_name = UniverConfig.name
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path('lesson/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson-get'),
     path('lesson/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson-update'),
     path('lesson/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson-delete'),
+    path('payments/', PaymentsListAPIView.as_view(), name='payments'),
 ] + router.urls
 
