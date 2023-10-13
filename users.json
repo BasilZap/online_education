@@ -1,0 +1,82 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "admin",
+      "last_name": "Superuser",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:48:29.511Z",
+      "email": "admin@sky.ru",
+      "phone": null,
+      "city": "Москва",
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Сергей",
+      "last_name": "Сергеев",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:53:20.238Z",
+      "email": "sergey.sergeev@sky.ru",
+      "phone": null,
+      "city": "Москва",
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:50:12.082Z",
+      "email": "ivan.ivanov@sky.ru",
+      "phone": null,
+      "city": "Санкт-Петербург",
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Петр",
+      "last_name": "Петров",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:51:00.948Z",
+      "email": "petr.petrov@sky.ru",
+      "phone": null,
+      "city": "Санкт-Петербург",
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
