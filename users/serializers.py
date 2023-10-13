@@ -4,6 +4,7 @@ from univer.serializers import PaymentsSerializer
 from users.models import User
 
 
+# Сериализатор для пользователя
 class UserSerializer(serializers.ModelSerializer):
     payments = PaymentsSerializer(source='payments_set', many=True)
 
