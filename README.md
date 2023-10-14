@@ -49,6 +49,7 @@
 ```
 Администратор - admin@sky.ru; пароль 123456
 Модератор - petr.petrov@sky.ru; пароль 123456
+Пользователи - sergey.sergeev@sky.ru, ivan.ivanov@sky.ru, aleksey.alekseev@sky.ru; пароли - 123456
 
 #### Альтернативный способ
 
