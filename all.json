@@ -1,0 +1,306 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "manager",
+      "permissions": []
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 1,
+    "fields": {
+      "name": "Python",
+      "image": "",
+      "description": "Курс языка Python",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 2,
+    "fields": {
+      "name": "Java",
+      "image": "",
+      "description": "Курс языка Java",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 3,
+    "fields": {
+      "name": "Супер Курс C++",
+      "image": "",
+      "description": "Узнаем всё",
+      "owner": 3
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 5,
+    "fields": {
+      "name": "Новый курс",
+      "image": "",
+      "description": "Просто чудесный курс",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.course",
+    "pk": 6,
+    "fields": {
+      "name": "Новый курс",
+      "image": "",
+      "description": "Просто чудесный курс",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 2,
+    "fields": {
+      "name": "Арифметические и логические операции в Python",
+      "course": 1,
+      "description": "В уроке мы узнаем об арифметических и логических операциях в Python",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/2",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 3,
+    "fields": {
+      "name": "Операции со структурами данных в Python",
+      "course": 1,
+      "description": "В уроке мы узнаем как работать со списками, кортежами и т.д. в Python",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/3",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 4,
+    "fields": {
+      "name": "Логические операции в Java",
+      "course": 2,
+      "description": "В уроке мы узнаем о логических операциях в Java",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/4",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 5,
+    "fields": {
+      "name": "Арифметические операции в Java",
+      "course": 2,
+      "description": "В уроке мы узнаем об арифметических операциях в Java",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/5",
+      "owner": 2
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 6,
+    "fields": {
+      "name": "Введение в C++",
+      "course": 3,
+      "description": "В уроке мы узнаем что такое C++",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/6",
+      "owner": 3
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 7,
+    "fields": {
+      "name": "Больше о C++",
+      "course": 3,
+      "description": "В уроке мы узнаем еще больше о C++",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/7",
+      "owner": 3
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 8,
+    "fields": {
+      "name": "Еще больше о C++",
+      "course": 3,
+      "description": "В уроке мы узнаем еще сильно больше о C++",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/8",
+      "owner": 3
+    }
+  },
+  {
+    "model": "univer.lesson",
+    "pk": 9,
+    "fields": {
+      "name": "Фантастические знания о C++",
+      "course": 3,
+      "description": "Наше всё - C++",
+      "image": "",
+      "link": "http://127.0.0.1:8000/lesson/9",
+      "owner": 3
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 1,
+    "fields": {
+      "pay_user": 1,
+      "pay_date": "2023-01-02",
+      "payd_course": 3,
+      "payd_lesson": null,
+      "pay_amount": 12000.0,
+      "pay_method": "cash"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 2,
+    "fields": {
+      "pay_user": 2,
+      "pay_date": "2023-01-10",
+      "payd_course": 1,
+      "payd_lesson": null,
+      "pay_amount": 5000.0,
+      "pay_method": "cash"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 3,
+    "fields": {
+      "pay_user": 1,
+      "pay_date": "2023-02-02",
+      "payd_course": null,
+      "payd_lesson": 6,
+      "pay_amount": 4000.0,
+      "pay_method": "transfer"
+    }
+  },
+  {
+    "model": "univer.payments",
+    "pk": 5,
+    "fields": {
+      "pay_user": 3,
+      "pay_date": "2023-03-05",
+      "payd_course": null,
+      "payd_lesson": 2,
+      "pay_amount": 4000.0,
+      "pay_method": "transfer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$qBnCxHqMSgwE9XgbM6DAHW$aF+nh+CTo4EpkrDB+3DSJ2OGW7cM514bdViOLpZWWAg=",
+      "last_login": "2023-10-14T12:23:47.320Z",
+      "is_superuser": true,
+      "first_name": "admin",
+      "last_name": "Superuser",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:48:29.511Z",
+      "email": "admin@sky.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$NUArpOJplShX5cheIg8OkT$7MldTGOWuCFtpz+Saq3RR0uCQqkUjQDqV67eYkEETjU=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Сергей",
+      "last_name": "Сергеев",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:53:20.238Z",
+      "email": "sergey.sergeev@sky.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$QIJsOgCn8rJwzGitQIOEfQ$hk6KOFH7fYRMf+jl0S1G4kAhYZ1zd1jsjNM4riJ/PS0=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:50:12.082Z",
+      "email": "ivan.ivanov@sky.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$jSQqTZZYtyumMIrmrgOBVp$d6DBEjD7f+RoG0+tMPkCr0dXhSurQ3TZ+utds4cdOSA=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Петр",
+      "last_name": "Петров",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-12T22:51:00Z",
+      "email": "petr.petrov@sky.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-14T15:01:53.660Z",
+      "email": "aleksey.alekseev@sky.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

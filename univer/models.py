@@ -1,5 +1,6 @@
 from django.db import models
 
+from config import settings
 from users.models import NULLABLE, User
 
 PAY_METHODS = (
@@ -13,6 +14,7 @@ class Course(models.Model):
     name = models.CharField(max_length=150, verbose_name='название курса')
     image = models.ImageField(upload_to='univer/', verbose_name='Фото', **NULLABLE)
     description = models.TextField(verbose_name='описание курса')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'
@@ -29,6 +31,7 @@ class Lesson(models.Model):
     description = models.TextField(verbose_name='описание курса')
     image = models.ImageField(upload_to='lesson/', verbose_name='Фото', **NULLABLE)
     link = models.TextField(verbose_name='ссылка')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'

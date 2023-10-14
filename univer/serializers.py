@@ -13,7 +13,7 @@ class LessonSerializer(serializers.ModelSerializer):
 # Сериализатор для курса
 class CourseSerializer(serializers.ModelSerializer):
     course_lesson_count = serializers.SerializerMethodField()
-    lessons = LessonSerializer(source='lesson_set', many=True)
+    lessons = LessonSerializer(source='lesson_set', many=True, read_only=True)
 
     class Meta:
         model = Course
@@ -22,8 +22,8 @@ class CourseSerializer(serializers.ModelSerializer):
     def get_course_lesson_count(self, course):
         """
         Метод вывода уроков конкретного курса
-        :param course:
-        :return:
+        :param course: Курс
+        :return: счетчик int
         """
         return Lesson.objects.filter(course=course).count()
 
