@@ -11,10 +11,20 @@ class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
 
+    def perform_create(self, serializer):
+        new_course = serializer.save()
+        new_course.owner = self.request.user
+        new_course.save()
+
 
 # Контроллер создания урока
 class LessonCreateAPIView(generics.CreateAPIView):
     serializer_class = LessonSerializer
+
+    def perform_create(self, serializer):
+        new_lesson = serializer.save()
+        new_lesson.owner = self.request.user
+        new_lesson.save()
 
 
 # Контроллер отображения уроков
