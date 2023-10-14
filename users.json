@@ -3,8 +3,8 @@
     "model": "users.user",
     "pk": 1,
     "fields": {
-      "password": "",
-      "last_login": null,
+      "password": "pbkdf2_sha256$600000$qBnCxHqMSgwE9XgbM6DAHW$aF+nh+CTo4EpkrDB+3DSJ2OGW7cM514bdViOLpZWWAg=",
+      "last_login": "2023-10-14T12:23:47.320Z",
       "is_superuser": true,
       "first_name": "admin",
       "last_name": "Superuser",
@@ -13,7 +13,7 @@
       "date_joined": "2023-10-12T22:48:29.511Z",
       "email": "admin@sky.ru",
       "phone": null,
-      "city": "Москва",
+      "city": null,
       "avatar": "",
       "groups": [],
       "user_permissions": []
@@ -23,7 +23,7 @@
     "model": "users.user",
     "pk": 2,
     "fields": {
-      "password": "",
+      "password": "pbkdf2_sha256$600000$NUArpOJplShX5cheIg8OkT$7MldTGOWuCFtpz+Saq3RR0uCQqkUjQDqV67eYkEETjU=",
       "last_login": null,
       "is_superuser": false,
       "first_name": "Сергей",
@@ -33,7 +33,7 @@
       "date_joined": "2023-10-12T22:53:20.238Z",
       "email": "sergey.sergeev@sky.ru",
       "phone": null,
-      "city": "Москва",
+      "city": null,
       "avatar": "",
       "groups": [],
       "user_permissions": []
@@ -43,7 +43,7 @@
     "model": "users.user",
     "pk": 3,
     "fields": {
-      "password": "",
+      "password": "pbkdf2_sha256$600000$QIJsOgCn8rJwzGitQIOEfQ$hk6KOFH7fYRMf+jl0S1G4kAhYZ1zd1jsjNM4riJ/PS0=",
       "last_login": null,
       "is_superuser": false,
       "first_name": "Иван",
@@ -53,7 +53,7 @@
       "date_joined": "2023-10-12T22:50:12.082Z",
       "email": "ivan.ivanov@sky.ru",
       "phone": null,
-      "city": "Санкт-Петербург",
+      "city": null,
       "avatar": "",
       "groups": [],
       "user_permissions": []
@@ -63,19 +63,21 @@
     "model": "users.user",
     "pk": 4,
     "fields": {
-      "password": "",
+      "password": "pbkdf2_sha256$600000$jSQqTZZYtyumMIrmrgOBVp$d6DBEjD7f+RoG0+tMPkCr0dXhSurQ3TZ+utds4cdOSA=",
       "last_login": null,
       "is_superuser": false,
       "first_name": "Петр",
       "last_name": "Петров",
       "is_staff": false,
       "is_active": true,
-      "date_joined": "2023-10-12T22:51:00.948Z",
+      "date_joined": "2023-10-12T22:51:00Z",
       "email": "petr.petrov@sky.ru",
       "phone": null,
-      "city": "Санкт-Петербург",
+      "city": null,
       "avatar": "",
-      "groups": [],
+      "groups": [
+        1
+      ],
       "user_permissions": []
     }
   }
