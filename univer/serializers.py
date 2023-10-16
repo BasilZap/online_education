@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from univer.models import Course, Lesson, Payments
+from univer.validators import LinkValidator
 
 
 # Сериализатор для урока
@@ -8,6 +9,7 @@ class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
         fields = '__all__'
+        validators = [LinkValidator(field='link')]
 
 
 # Сериализатор для курса
