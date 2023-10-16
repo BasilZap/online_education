@@ -41,7 +41,7 @@ class Lesson(models.Model):
         verbose_name_plural = 'Уроки'
 
 
-# Модель 'Платежи'
+# Модель Платежи
 class Payments(models.Model):
     pay_user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     pay_date = models.DateField(verbose_name='Дата оплаты')
@@ -57,3 +57,17 @@ class Payments(models.Model):
     class Meta:
         verbose_name = 'Платеж'
         verbose_name_plural = 'Платежи'
+
+
+# Модель Подписка
+class Subscription(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Курс')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
+                             verbose_name='Пользователь')
+
+    def __str__(self):
+        return f' Подписка {self.user.name} на курс {self.course.name}'
+
+    class Meta:
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'

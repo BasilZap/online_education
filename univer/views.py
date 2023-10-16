@@ -5,8 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from univer.permissions import IsOwner, IsManager, IsManagerOrIsOwner
 
-from univer.models import Course, Lesson, Payments
-from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSerializer
+from univer.models import Course, Lesson, Payments, Subscription
+from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSerializer, SubscriptionSerializer
 
 
 # Вьюсет для курса
@@ -19,7 +19,7 @@ class CourseViewSet(viewsets.ModelViewSet):
         'destroy': [IsOwner],
         'update': [IsManagerOrIsOwner],
         'partial_update': [IsManagerOrIsOwner],
-        'retrieve': [IsManagerOrIsOwner],
+        'retrieve': [IsAuthenticated],
         'list': [IsAuthenticated]
     }
 
@@ -93,3 +93,24 @@ class PaymentsListAPIView(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ('payd_course', 'payd_lesson', 'pay_method')
     ordering_fields = ('pay_date',)
+
+
+class SubscriptionCreateAPIView(generics.CreateAPIView):
+    serializer_class = SubscriptionSerializer
+
+    def perform_create(self, serializer):
+        """
+        Метод присваивания подписки пользователю
+        :param serializer: Сериализатор
+        :return: None
+        :param serializer:
+        :return:
+        """
+        new_subscribe = serializer.save()
+        new_subscribe.user = self.request.user
+        new_subscribe.save()
+
+
+class SubscriptionDestroyAPIView(generics.DestroyAPIView):
+    queryset = Subscription.objects.all()
+
