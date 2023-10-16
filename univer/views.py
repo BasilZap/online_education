@@ -3,6 +3,7 @@ from rest_framework import viewsets, generics
 from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 
+from univer.paginators import UniverPaginator
 from univer.permissions import IsOwner, IsManager, IsManagerOrIsOwner
 
 from univer.models import Course, Lesson, Payments, Subscription
@@ -13,6 +14,7 @@ from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSeria
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+    pagination_class = UniverPaginator
 
     action_permissions = {
         'create': [~IsManager],
@@ -64,6 +66,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
+    pagination_class = UniverPaginator
 
 
 # Контроллер отображения урока
