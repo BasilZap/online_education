@@ -3,23 +3,25 @@ from rest_framework import viewsets, generics
 from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 
+from univer.paginators import UniverPaginator
 from univer.permissions import IsOwner, IsManager, IsManagerOrIsOwner
 
-from univer.models import Course, Lesson, Payments
-from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSerializer
+from univer.models import Course, Lesson, Payments, Subscription
+from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSerializer, SubscriptionSerializer
 
 
 # Вьюсет для курса
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+    pagination_class = UniverPaginator
 
     action_permissions = {
         'create': [~IsManager],
         'destroy': [IsOwner],
         'update': [IsManagerOrIsOwner],
         'partial_update': [IsManagerOrIsOwner],
-        'retrieve': [IsManagerOrIsOwner],
+        'retrieve': [IsAuthenticated],
         'list': [IsAuthenticated]
     }
 
@@ -64,6 +66,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
+    pagination_class = UniverPaginator
 
 
 # Контроллер отображения урока
@@ -93,3 +96,24 @@ class PaymentsListAPIView(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ('payd_course', 'payd_lesson', 'pay_method')
     ordering_fields = ('pay_date',)
+
+
+class SubscriptionCreateAPIView(generics.CreateAPIView):
+    serializer_class = SubscriptionSerializer
+
+    def perform_create(self, serializer):
+        """
+        Метод присваивания подписки пользователю
+        :param serializer: Сериализатор
+        :return: None
+        :param serializer:
+        :return:
+        """
+        new_subscribe = serializer.save()
+        new_subscribe.user = self.request.user
+        new_subscribe.save()
+
+
+class SubscriptionDestroyAPIView(generics.DestroyAPIView):
+    queryset = Subscription.objects.all()
+
