@@ -4,26 +4,26 @@ from users.models import User
 from users.serializers import UserSerializer
 
 
-# Контроллер создания пользователя
 class UserCreateAPIView(generics.CreateAPIView):
+    """ Контроллер создания пользователя """
     serializer_class = UserSerializer
     permission_classes = [~IsAuthenticated]
 
 
-# Контроллер отображения пользователей
 class UserListAPIView(generics.ListAPIView):
+    """ Контроллер отображения пользователей """
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
 
-# Контроллер отображения пользователя
 class UserRetrieveAPIView(generics.RetrieveAPIView):
+    """ Контроллер отображения пользователя """
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
 
-# Контроллер изменения пользователя
 class UserUpdateAPIView(generics.UpdateAPIView):
+    """ Контроллер изменения пользователя """
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
