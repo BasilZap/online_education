@@ -44,15 +44,19 @@ class CourseSerializer(serializers.ModelSerializer):
         return 'Подписан'
 
 
-# Сериализатор для платежей
-class PaymentsSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Payments
-        fields = '__all__'
-
-
 class SubscriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscription
-        fields = '__all__'
+        fields = ('course',)
+
+
+# Сериализатор для платежей
+class PaymentsSerializer(serializers.ModelSerializer):
+    pay_user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Payments
+        fields = ("pay_user", "payd_course", "payd_lesson", "pay_amount", "pay_method", "pay_date", "pay_status")
+
+
+
