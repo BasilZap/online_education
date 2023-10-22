@@ -32,6 +32,6 @@ class IsManagerOrIsOwner(BasePermission):
         :param view: Контроллер
         :return: Bool
         """
-        if request.user.groups.filter(name='manager').exists():
+        if request.user.groups.filter(name='manager').exists() or request.user.is_superuser:
             return True
         return request.user == view.get_object().owner
