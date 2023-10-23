@@ -97,3 +97,6 @@
 - drf-yasg==1.21.7
 - python-dotenv==1.0.0
 - stripe==7.0.0
+- celery==5.3.4
+- redis==5.0.1
+- eventlet==0.33.3 (для Windows)
