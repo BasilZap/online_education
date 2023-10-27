@@ -8,13 +8,105 @@
     }
   },
   {
+    "model": "sessions.session",
+    "pk": "m8x8j4fkwmz6xthskyk7iuinlyb2v99q",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAUBe_C2hAoUIpL9z1D8_iAVA0kpV0Z725IutDtm5n3ZguOPS9Hi9uyBnZlkl1-Nw96xtJBeKDcK6da9m31vCv8pI3PNcTX7XT_DjJa7vXovCHIJPUEGozwSQXAKWgkJSdDpJL2iWxQgyMSJgkTYEer4R0i-3wBCrA5EA:1qvNAa:4UUPzb-MYydoZNoIYfBGLSGdqvGcQdIw540s8TTdf7k",
+      "expire_date": "2023-11-07T19:34:28.029Z"
+    }
+  },
+  {
+    "model": "django_celery_beat.intervalschedule",
+    "pk": 1,
+    "fields": {
+      "every": 1,
+      "period": "days"
+    }
+  },
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 1,
+    "fields": {
+      "minute": "0",
+      "hour": "4",
+      "day_of_week": "*",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "timezone": "UTC"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictasks",
+    "pk": 1,
+    "fields": {
+      "last_update": "2023-10-27T19:48:02.544Z"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 1,
+    "fields": {
+      "name": "user_check",
+      "task": "univer.tasks.block_not_active_users",
+      "interval": 1,
+      "crontab": null,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": "2023-10-26T14:45:19Z",
+      "enabled": true,
+      "last_run_at": "2023-10-27T17:56:17.355Z",
+      "total_run_count": 72,
+      "date_changed": "2023-10-27T17:56:22.655Z",
+      "description": ""
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 2,
+    "fields": {
+      "name": "celery.backend_cleanup",
+      "task": "celery.backend_cleanup",
+      "interval": null,
+      "crontab": 1,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": 43200,
+      "one_off": false,
+      "start_time": null,
+      "enabled": true,
+      "last_run_at": null,
+      "total_run_count": 0,
+      "date_changed": "2023-10-27T17:51:34.820Z",
+      "description": ""
+    }
+  },
+  {
     "model": "univer.course",
     "pk": 1,
     "fields": {
       "name": "Python",
       "image": "",
       "description": "Курс языка Python",
-      "owner": 2
+      "owner": 2,
+      "last_update": "2023-10-27T19:38:45.604Z"
     }
   },
   {
@@ -24,7 +116,8 @@
       "name": "Java",
       "image": "",
       "description": "Курс языка Java",
-      "owner": 2
+      "owner": 2,
+      "last_update": "2023-10-27T19:40:45.604Z"
     }
   },
   {
@@ -34,7 +127,8 @@
       "name": "Супер Курс C++",
       "image": "",
       "description": "Узнаем всё",
-      "owner": 3
+      "owner": 3,
+      "last_update": "2023-10-27T18:38:45.604Z"
     }
   },
   {
@@ -44,7 +138,8 @@
       "name": "Новый курс",
       "image": "",
       "description": "Просто чудесный курс",
-      "owner": 2
+      "owner": 2,
+      "last_update": "2023-10-27T21:38:45.604Z"
     }
   },
   {
@@ -54,7 +149,8 @@
       "name": "Новый курс",
       "image": "",
       "description": "Просто чудесный курс",
-      "owner": 2
+      "owner": 2,
+      "last_update": "2023-10-27T20:38:45.604Z"
     }
   },
   {
@@ -249,6 +345,46 @@
       "pay_method": "transfer",
       "pay_id": "pi_3O48MkJKSTUVZVSZ0vVx3QjL",
       "pay_status": "not_paid"
+    }
+  },
+  {
+    "model": "univer.subscription",
+    "pk": 2,
+    "fields": {
+      "course": 1,
+      "user": 3
+    }
+  },
+  {
+    "model": "univer.subscription",
+    "pk": 3,
+    "fields": {
+      "course": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "univer.subscription",
+    "pk": 4,
+    "fields": {
+      "course": 1,
+      "user": 1
+    }
+  },
+  {
+    "model": "univer.subscription",
+    "pk": 5,
+    "fields": {
+      "course": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "univer.subscription",
+    "pk": 6,
+    "fields": {
+      "course": 2,
+      "user": 5
     }
   },
   {

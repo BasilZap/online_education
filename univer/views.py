@@ -10,6 +10,7 @@ from univer.permissions import IsOwner, IsManager, IsManagerOrIsOwner
 from univer.models import Course, Lesson, Payments, Subscription
 from univer.serializers import CourseSerializer, LessonSerializer, PaymentsSerializer, SubscriptionSerializer
 from univer.services import stripe_pay, stripe_get_success
+from univer.tasks import course_change_alert
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -53,6 +54,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
     def perform_create(self, serializer):
         """
         Метод присвоения владельца каждому уроку
+        Вызов функции рассылки о добавлении урока
         :param serializer: Сериализатор
         :return: None
         :param serializer:
@@ -61,6 +63,8 @@ class LessonCreateAPIView(generics.CreateAPIView):
         new_lesson = serializer.save()
         new_lesson.owner = self.request.user
         new_lesson.save()
+        if new_lesson.course is not None:
+            course_change_alert.delay('create', new_lesson.course.pk, new_lesson.name)
 
 
 class LessonListAPIView(generics.ListAPIView):
@@ -83,11 +87,33 @@ class LessonUpdateAPIView(generics.UpdateAPIView):
     queryset = Lesson.objects.all()
     permission_classes = [IsManagerOrIsOwner]
 
+    def perform_update(self, serializer):
+        """
+        Переопределение метода perform_update
+        Вызов функции рассылки об изменении урока
+        :param serializer:
+        :return: None
+        """
+        upd_lesson = serializer.save()
+        if upd_lesson.course is not None:
+            course_change_alert.delay('update', upd_lesson.course.pk, upd_lesson.name)
+
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
     """ Контроллер удаления урока """
     queryset = Lesson.objects.all()
     permission_classes = [IsOwner]
+
+    def perform_destroy(self, instance):
+        """
+        Переопределение метода perform_destroy
+        создаем оповещение об удалении урока в курсе
+        :param instance: экземпляр модели lesson
+        :return: None
+        """
+        if instance.course is not None:
+            course_change_alert.delay('delete', instance.course.pk, instance.name)
+        instance.delete()
 
 
 class SubscriptionCreateAPIView(generics.CreateAPIView):
@@ -165,6 +191,3 @@ class PaymentsListAPIView(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ('payd_course', 'payd_lesson', 'pay_method')
     ordering_fields = ('pay_date',)
-
-
-

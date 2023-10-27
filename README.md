@@ -50,6 +50,11 @@
 - Подключен и настроен вывод документации для проекта
 - Подключить возможность оплаты курсов через https://stripe.com/docs/api, реализовано создание и проверка платежа
 
+## Домашняя работа 26.2. "Celery"
+- Проект настроен для работы с celery и celery-beat
+- Добавлена асинхронная рассылка писем об обновлении курса (изменение/добавление/удаление уроков)
+- С помощью celery-beat реализована фоновая задача для деактивации неактивных пользователей
+
 ### Требования к установке.
 - В PostgreSQL должна быть создана DB - univer
 
@@ -62,23 +67,14 @@
 Модератор - petr.petrov@sky.ru; пароль 123456
 Пользователи - sergey.sergeev@sky.ru, ivan.ivanov@sky.ru, aleksey.alekseev@sky.ru; пароли - 123456
 
-#### Альтернативный способ
-
-- Курсы и уроки:
+Запуск celery для Windows:
 ```
-> python manage.py loaddata lesson.json
+> celery -A config worker -l info -P eventlet
 ```
-
-- Платежи:
+Запуск celery-beat:
 ```
-> python manage.py loaddata pay.json
+> celery -A univer beat -l info -S django
 ```
-
-- Пользователи:
-```
-> python manage.py loaddata users.json
-```
-При таком заполнении отдельно в панели администрирования нужно создать группу manager
 
 ## Требования к окружению
 
@@ -97,3 +93,7 @@
 - drf-yasg==1.21.7
 - python-dotenv==1.0.0
 - stripe==7.0.0
+- celery==5.3.4
+- redis==5.0.1
+- eventlet==0.33.3 (для Windows)
+- django-celery-beat==2.5.0
