@@ -19,6 +19,7 @@ class Course(models.Model):
     image = models.ImageField(upload_to='univer/', verbose_name='Фото', **NULLABLE)
     description = models.TextField(verbose_name='описание курса')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
+    last_update = models.DateTimeField(verbose_name='Дата последнего изменения', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'
@@ -74,7 +75,7 @@ class Subscription(models.Model):
                              verbose_name='Пользователь')
 
     def __str__(self):
-        return f' Подписка {self.user.name} на курс {self.course.name}'
+        return f' Подписка {self.user.email} на курс {self.course.name}'
 
     class Meta:
         verbose_name = 'Подписка'
