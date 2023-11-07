@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'univer_docker', # os.getenv('DATABASE_NAME'),
+        'NAME': 'univer_docker',
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'HOST': 'db'
