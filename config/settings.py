@@ -85,9 +85,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'univer',
-        'USER': 'postgres',
+        'NAME': 'univer_docker', # os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': 'db'
     }
 }
 
@@ -159,5 +160,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')
 
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-CELERY_BACKEND_RESULT = "redis://localhost:6379/0"
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_BACKEND_RESULT = "redis://redis:6379/0"

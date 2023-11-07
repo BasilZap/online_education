@@ -46,6 +46,7 @@ def course_change_alert(action: str, course_id: int, lesson_name: str):
             print(user_message)
 
 
+@shared_task
 def block_not_active_users():
     """
     Функция, определяющая пользователей, которые
