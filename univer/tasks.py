@@ -46,12 +46,13 @@ def course_change_alert(action: str, course_id: int, lesson_name: str):
             print(user_message)
 
 
+@shared_task
 def block_not_active_users():
     """
     Функция, определяющая пользователей, которые
     последний раз заходили более 30 дней назад и если
     такие есть выставляет флаг is_active в False
-    :return:
+    :return: -> None
     """
     current_date = timezone.now()
     time_delta = current_date - datetime.timedelta(days=30)
